@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { response } from 'express';
 import { error } from 'console';
 import { Router } from '@angular/router';
+import { LeaveDetails } from '../leave-details.interface';
 
 
 @Component({
@@ -24,14 +25,21 @@ export class LeaveDetailsComponent {
     leaveType: ['', Validators.required],
     startDate: ['', Validators.required],
     endDate: ['', Validators.required],
-    reason: ['', Validators.required]
+    reason: ['', Validators.required],
+
   });
 }
 applyLeave() {
-   console.log(this.leaveForm.value);
-   this.leaveService.applyLeave(this.leaveForm.value).subscribe((apply)=>{
+
+  const leave: LeaveDetails = {
+    ...this.leaveForm.value,
+       status:"pending"
+
+  }
+   console.log(leave);
+   this.leaveService.applyLeave(leave).subscribe((apply)=>{
     console.log(apply);
-    console.log(this.leaveForm.value)
+    console.log(leave)
     this.leaveForm.reset({})
     
     this.router.navigate([`app-leave-details-list`])

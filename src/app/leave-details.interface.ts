@@ -5,5 +5,5 @@ export interface LeaveDetails {
     startDate: Date;
     endDate: Date;
     reason: string;
-    status:string;
+    status:string; 
   }

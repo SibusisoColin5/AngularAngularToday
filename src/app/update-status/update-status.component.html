@@ -1,5 +1,5 @@
 
-<h2>Employee List For The Management System</h2>
+<h2>Employee List For The Management Update Update Update</h2>
 <table class="table">
     <thead>
       <tr>
@@ -26,20 +26,22 @@
         <td>{{leaveDetail.status}}</td>
       
 
-        <td>
+        <!-- <td>
           <button *ngIf="isManager"  [routerLink]='["/update-status",leaveDetail.id]'>Update Status</button>
-        </td>
+        </td> -->
 
-          <!-- <td>
+           <td>
             <select *ngIf="isManager" [(ngModel)]="leaveDetail.status" (change)="updateStatus(i, leaveDetail.status)">
               <option value="approve">Approve</option>
               <option value="reject">Reject</option>
               <option selected="pending">Pending</option>
             </select>
-          </td> -->
+          </td> 
    
       </tr>
     </tbody>
   </table>
   
+
+
 

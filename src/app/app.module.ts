@@ -4,13 +4,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioButton } from '@angular/material/radio';
-import { HttpClientModule, HttpClientXsrfModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HttpClientXsrfModule, HTTP_INTERCEPTORS, provideHttpClient, withFetch } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LeaveDetailsComponent } from './leave-details/leave-details.component';
 import { LeaveService } from './leave.service';
 import { LeaveDetailsListComponent } from './leave-details-list/leave-details-list.component';
 import { RouterLink } from '@angular/router';
 import { ComponentManageComponent } from './component-manage/component-manage.component';
+import { UpdateStatusComponent } from './update-status/update-status.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { ComponentManageComponent } from './component-manage/component-manage.co
     LeaveDetailsComponent,
     LeaveDetailsListComponent,
     ComponentManageComponent,
+    UpdateStatusComponent,
     
 
   ],
@@ -35,7 +37,8 @@ import { ComponentManageComponent } from './component-manage/component-manage.co
     BrowserAnimationsModule
   ],
   providers: [LeaveService,
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })
